@@ -8,10 +8,10 @@
             "type": "lldb",
             "request": "launch",
             "name": "Debug",
-            "program": "${workspaceFolder}/binary_test",
+            "program": "${workspaceFolder}/build/bin/binary_test",
             "args": [],
             "cwd": "${workspaceFolder}",
-            "preLaunchTask": "Build"
+            "preLaunchTask": "Full Build"
         }
     ]
 }

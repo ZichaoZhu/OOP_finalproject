@@ -1,0 +1,1 @@
+/usr/bin/c++ -g -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/binary_test.dir/test/binary_test.cpp.o -o bin/binary_test  libbinary_lib.a lib/libgtest.a lib/libgtest_main.a -lpthread lib/libgtest.a

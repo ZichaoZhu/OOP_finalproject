@@ -1,36 +1,65 @@
 {
-	"version": "2.0.0",
-	"options": {
-		"cwd": "${workspaceFolder}/build"
-	},
-	"tasks": [
-		{
-			"type": "shell",
-			"label": "cmake",
-			"command": "cmake",
-			"args": [
-				".."
-			]
-		},
-		{
-			"label": "make",
-			"group": {
-				"kind": "build",
-				"isDefault": true
-			},
-			"command": "make"
-		},
-		{
-			"label": "Build",
-			"dependsOrder": "sequence",
-			"dependsOn": [
-				"cmake",
-				"make"
-			],
-			"group": {
-				"kind": "build",
-				"isDefault": true
-			}
-		}
-	]
+    "version": "2.0.0",
+    "options": {
+        "cwd": "${workspaceFolder}/build" // 设置工作目录为 build 文件夹
+    },
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "Create Build Directory",
+            "command": "mkdir",
+            "args": [
+                "-p", // 避免文件夹已存在时报错
+                "build"
+            ]
+        },
+        {
+            "type": "shell",
+            "label": "Configure CMake",
+            "command": "cmake",
+            "args": [
+                "-DCMAKE_BUILD_TYPE=Debug",
+                "-DCMAKE_EXPORT_COMPILE_COMMANDS=TRUE",
+                ".."
+            ],
+            "dependsOn": "Create Build Directory"
+        },
+        {
+            "label": "Build Project",
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            },
+            "command": "make",
+            "dependsOn": "Configure CMake" // 依赖 CMake 配置任务
+        },
+        {
+            "label": "Full Build",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "Create Build Directory",
+                "Configure CMake",
+                "Build Project"
+            ],
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Run Program",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "Full Build"
+            ],
+            "group": {
+                "kind": "test",
+                "isDefault": false
+            },
+            "type": "shell",
+            "command": "${workspaceFolder}/build/bin/binary_test",
+            "args": [],
+            "problemMatcher": []
+        }
+    ]
 }
