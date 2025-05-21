@@ -3,6 +3,7 @@
 #include <gtest/gtest.h>
 #include <iostream>
 #include <string>
+#include <utility>
 
 std::string DataDir = "Data/";
 
@@ -70,6 +71,41 @@ TEST(BinaryTest, StringSerialization)
     binary::deserialize(deserialized_string, DataDir + "string_test.data");
 
     ASSERT_EQ(original_string, deserialized_string);
+}
+
+// 测试 std::pair 的序列化
+TEST(BinaryTest, PairSerialization)
+{
+    std::pair<int, std::string> original_pair(1, "Hello, world.");
+    binary::serialize(original_pair, DataDir + "pair_test.data");
+    
+    std::pair<int, std::string> deserialized_pair;
+    binary::deserialize(deserialized_pair, DataDir + "pair_test.data");
+    ASSERT_EQ(original_pair, deserialized_pair);
+}
+
+// 测试 std::vector 的序列化
+TEST(BinaryTest, VectorSerialization)
+{
+    std::vector<int> original_vector = {1, 2, 3, 4, 5};
+    binary::serialize(original_vector, DataDir + "vector_test.data");
+    
+    std::vector<int> deserialized_vector;
+    binary::deserialize(deserialized_vector, DataDir + "vector_test.data");
+    
+    ASSERT_EQ(original_vector, deserialized_vector);
+}
+
+// 测试 std::list 的序列化
+TEST(BinaryTest, ListSerialization)
+{
+    std::list<int> original_list = {1, 2, 3, 4, 5};
+    binary::serialize(original_list, DataDir + "list_test.data");
+    
+    std::list<int> deserialized_list;
+    binary::deserialize(deserialized_list, DataDir + "list_test.data");
+    
+    ASSERT_EQ(original_list, deserialized_list);
 }
 
 int main(int argc, char **argv)

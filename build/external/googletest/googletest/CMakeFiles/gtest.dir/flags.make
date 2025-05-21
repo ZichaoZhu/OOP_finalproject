@@ -6,7 +6,7 @@ CXX_DEFINES =
 
 CXX_INCLUDES = -I"/Users/zzc/Desktop/OOP homework/Finalproject/include" -I"/Users/zzc/Desktop/OOP homework/Finalproject/external/googletest/googletest/include" -I"/Users/zzc/Desktop/OOP homework/Finalproject/external/googletest/googletest"
 
-CXX_FLAGSarm64 = -g -std=c++17 -arch arm64  -DGTEST_HAS_PTHREAD=1  
+CXX_FLAGSarm64 = -g -std=c++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk  -DGTEST_HAS_PTHREAD=1  
 
-CXX_FLAGS = -g -std=c++17 -arch arm64  -DGTEST_HAS_PTHREAD=1  
+CXX_FLAGS = -g -std=c++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk  -DGTEST_HAS_PTHREAD=1  
 

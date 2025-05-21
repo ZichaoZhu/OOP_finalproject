@@ -11,7 +11,7 @@
             "program": "${workspaceFolder}/build/bin/binary_test",
             "args": [],
             "cwd": "${workspaceFolder}",
-            "preLaunchTask": "Full Build"
+            "preLaunchTask": "Build Project"
         }
     ]
 }
