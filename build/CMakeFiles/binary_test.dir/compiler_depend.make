@@ -877,6 +877,7 @@ CMakeFiles/binary_test.dir/test/binary_test.cpp.o: /Users/zzc/Desktop/OOP\ homew
   /Users/zzc/Desktop/OOP\ homework/Finalproject/external/googletest/googletest/include/gtest/internal/gtest-string.h \
   /Users/zzc/Desktop/OOP\ homework/Finalproject/external/googletest/googletest/include/gtest/internal/gtest-type-util.h \
   /Users/zzc/Desktop/OOP\ homework/Finalproject/include/binary.h \
+  /Users/zzc/Desktop/OOP\ homework/Finalproject/include/macro.h \
   /Users/zzc/Desktop/OOP\ homework/Finalproject/include/userdefinetype.h
 
 
@@ -1981,6 +1982,8 @@ CMakeFiles/binary_test.dir/test/binary_test.cpp.o: /Users/zzc/Desktop/OOP\ homew
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/include/sys/_types/_u_int16_t.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/__configuration/language.h:
+
+/Users/zzc/Desktop/OOP\ homework/Finalproject/include/macro.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/__filesystem/path.h:
 
