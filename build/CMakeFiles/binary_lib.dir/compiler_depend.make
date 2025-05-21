@@ -819,7 +819,9 @@ CMakeFiles/binary_lib.dir/src/binary.cpp.o: /Users/zzc/Desktop/OOP\ homework/Fin
   /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stdarg.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stddef.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/17/include/stdint.h \
-  /Users/zzc/Desktop/OOP\ homework/Finalproject/include/binary.h
+  /Users/zzc/Desktop/OOP\ homework/Finalproject/include/binary.h \
+  /Users/zzc/Desktop/OOP\ homework/Finalproject/include/macro.h \
+  /Users/zzc/Desktop/OOP\ homework/Finalproject/include/userdefinetype.h
 
 
 /Users/zzc/Desktop/OOP\ homework/Finalproject/include/binary.h:
@@ -1826,6 +1828,8 @@ CMakeFiles/binary_lib.dir/src/binary.cpp.o: /Users/zzc/Desktop/OOP\ homework/Fin
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/__configuration/language.h:
 
+/Users/zzc/Desktop/OOP\ homework/Finalproject/include/macro.h:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/__filesystem/path.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/__functional/pointer_to_binary_function.h:
@@ -2449,6 +2453,8 @@ CMakeFiles/binary_lib.dir/src/binary.cpp.o: /Users/zzc/Desktop/OOP\ homework/Fin
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/__algorithm/replace_copy.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/__utility/empty.h:
+
+/Users/zzc/Desktop/OOP\ homework/Finalproject/include/userdefinetype.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/include/sys/syslimits.h:
 

@@ -876,7 +876,8 @@ CMakeFiles/binary_test.dir/test/binary_test.cpp.o: /Users/zzc/Desktop/OOP\ homew
   /Users/zzc/Desktop/OOP\ homework/Finalproject/external/googletest/googletest/include/gtest/internal/gtest-port.h \
   /Users/zzc/Desktop/OOP\ homework/Finalproject/external/googletest/googletest/include/gtest/internal/gtest-string.h \
   /Users/zzc/Desktop/OOP\ homework/Finalproject/external/googletest/googletest/include/gtest/internal/gtest-type-util.h \
-  /Users/zzc/Desktop/OOP\ homework/Finalproject/include/binary.h
+  /Users/zzc/Desktop/OOP\ homework/Finalproject/include/binary.h \
+  /Users/zzc/Desktop/OOP\ homework/Finalproject/include/userdefinetype.h
 
 
 /Users/zzc/Desktop/OOP\ homework/Finalproject/include/binary.h:
@@ -962,6 +963,8 @@ CMakeFiles/binary_test.dir/test/binary_test.cpp.o: /Users/zzc/Desktop/OOP\ homew
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/include/sys/unistd.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/include/sys/types.h:
+
+/Users/zzc/Desktop/OOP\ homework/Finalproject/include/userdefinetype.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/include/sys/syslimits.h:
 

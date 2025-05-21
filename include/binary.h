@@ -13,99 +13,17 @@ Both modules should provide a convenient mechanism (by macro, template, etc.) to
 #include <utility> // std::pair
 #include <fstream>
 #include <type_traits> // 添加此头文件以支持 std::enable_if 和 std::is_arithmetic
-#include <list> 
+#include <list>
 #include <vector>
 #include <stdexcept> // std::runtime_error
 #include <set>
 #include <map>
 #include <iostream>
-
-
+#include <userdefinetype.h> // 添加此头文件以支持用户自定义类型的序列化
+#include "macro.h"
 
 namespace binary
 {
-   // 提前声明 writeintofile 和 readfromfile 模板函数
-
-   // is_arithmetic
-   template <typename T>
-   typename std::enable_if<std::is_arithmetic<T>::value, void>::type
-   writeintofile(const T &t, std::ofstream &file);
-
-   template <typename T>
-   typename std::enable_if<std::is_arithmetic<T>::value, void>::type
-   readfromfile(T &t, std::ifstream &file);
-
-   // std::string
-   template <typename T>
-   typename std::enable_if<std::is_same<T, std::string>::value, void>::type
-   writeintofile(const T &t, std::ofstream &file);
-
-   template <typename T>
-   typename std::enable_if<std::is_same<T, std::string>::value, void>::type
-   readfromfile(T &t, std::ifstream &file);
-
-   // 专门用于 std::pair 类型的前向声明
-   template <typename T1, typename T2>
-   void writeintofile(const std::pair<T1, T2> &t, std::ofstream &file);
-
-   template <typename T1, typename T2>
-   void readfromfile(std::pair<T1, T2> &t, std::ifstream &file);
-
-   // std::vector
-   template <typename T>
-   void writeintofile(const std::vector<T> &t, std::ofstream &file);
-
-   template <typename T>
-   void readfromfile(std::vector<T> &t, std::ifstream &file);
-
-   // std::list
-   template <typename T>
-   void writeintofile(const std::list<T> &t, std::ofstream &file);
-
-   template <typename T>
-   void readfromfile(std::list<T> &t, std::ifstream &file);
-
-   // std::set
-   template <typename T>
-   void writeintofile(const std::set<T> &t, std::ofstream &file);
-
-   template <typename T>
-   void readfromfile(std::set<T> &t, std::ifstream &file);
-
-   // std::map
-   template <typename K, typename V>
-   void writeintofile(const std::map<K, V> &t, std::ofstream &file);
-
-   template <typename K, typename V>
-   void readfromfile(std::map<K, V> &t, std::ifstream &file);
-
-
-
-   // serial and deserial function
-   template <typename T>
-   void serialize(const T &t, std::string filename)
-   {
-      std::ofstream file(filename, std::ios::binary);
-      if (!file)
-      {
-         throw std::runtime_error("Could not open file for writing");
-      }
-      writeintofile(t, file);
-      file.close();
-   }
-
-   template <typename T>
-   void deserialize(T &t, std::string filename)
-   {
-      std::ifstream file(filename, std::ios::binary);
-      if (!file)
-      {
-         throw std::runtime_error("Could not open file for reading");
-      }
-      readfromfile(t, file);
-      file.close();
-   }
-
    /**
     * @brief Write the is_arithmetic type to a binary file.
     * @tparam For arithmetic types, we can directly use sizeof(T) to get their size and write them to the file.
@@ -299,7 +217,7 @@ namespace binary
       // Read the size of the set
       size_t size;
       file.read(reinterpret_cast<char *>(&size), sizeof(size));
-      
+
       // 清空 set，然后读取元素并插入
       t.clear();
       for (size_t i = 0; i < size; ++i)
@@ -347,7 +265,41 @@ namespace binary
       }
    }
 
+   /**
+    * @brief Write the user-defined type to a binary file.
+    * @tparam 使用宏为用户自定义类型专门提供序列化实现
+    */
+   DEFINE_SERIALIZATION(userdefinetype::UserDefinedType,
+      writeintofile(t.idx, file);
+      writeintofile(t.name, file);
+      writeintofile(t.data, file);,
+      readfromfile(t.idx, file);
+      readfromfile(t.name, file);
+      readfromfile(t.data, file);)
 
+   // serial and deserial function
+   template <typename T>
+   void serialize(const T &t, std::string filename)
+   {
+      std::ofstream file(filename, std::ios::binary);
+      if (!file)
+      {
+         throw std::runtime_error("Could not open file for writing");
+      }
+      writeintofile(t, file);
+      file.close();
+   }
 
+   template <typename T>
+   void deserialize(T &t, std::string filename)
+   {
+      std::ifstream file(filename, std::ios::binary);
+      if (!file)
+      {
+         throw std::runtime_error("Could not open file for reading");
+      }
+      readfromfile(t, file);
+      file.close();
+   }
 
 }

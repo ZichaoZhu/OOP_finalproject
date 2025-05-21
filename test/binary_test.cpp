@@ -1,5 +1,6 @@
 #include <filesystem>
 #include "binary.h"
+#include "userdefinetype.h"
 #include <gtest/gtest.h>
 #include <iostream>
 #include <string>
@@ -130,6 +131,24 @@ TEST(BinaryTest, MapSerialization)
     binary::deserialize(deserialized_map, DataDir + "map_test.data");
     
     ASSERT_EQ(original_map, deserialized_map);
+}
+
+// 测试自定义类型的序列化
+TEST(BinaryTest, UserDefinedTypeSerialization)
+{
+    int idx = 1;
+    std::string name = "Liu Bei";
+    std::vector<double> data = {1.0, 2.0, 3.0};
+    userdefinetype::UserDefinedType original_data;
+    userdefinetype::set(original_data, idx, name, data);
+    binary::serialize(original_data, DataDir + "user_defined_test.data");
+    
+    userdefinetype::UserDefinedType deserialized_data;
+    binary::deserialize(deserialized_data, DataDir + "user_defined_test.data");
+    
+    ASSERT_EQ(original_data.idx, deserialized_data.idx);
+    ASSERT_EQ(original_data.name, deserialized_data.name);
+    ASSERT_EQ(original_data.data, deserialized_data.data);
 }
 
 
