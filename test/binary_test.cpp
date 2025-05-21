@@ -108,6 +108,32 @@ TEST(BinaryTest, ListSerialization)
     ASSERT_EQ(original_list, deserialized_list);
 }
 
+// 测试 std::set 的序列化
+TEST(BinaryTest, SetSerialization)
+{
+    std::set<int> original_set = {1, 2, 3, 4, 5};
+    binary::serialize(original_set, DataDir + "set_test.data");
+    
+    std::set<int> deserialized_set;
+    binary::deserialize(deserialized_set, DataDir + "set_test.data");
+    
+    ASSERT_EQ(original_set, deserialized_set);
+}
+
+// 测试 std::map 的序列化
+TEST(BinaryTest, MapSerialization)
+{
+    std::map<int, std::string> original_map = {{1, "one"}, {2, "two"}, {3, "three"}};
+    binary::serialize(original_map, DataDir + "map_test.data");
+    
+    std::map<int, std::string> deserialized_map;
+    binary::deserialize(deserialized_map, DataDir + "map_test.data");
+    
+    ASSERT_EQ(original_map, deserialized_map);
+}
+
+
+
 int main(int argc, char **argv)
 {
     std::filesystem::remove_all("Data");

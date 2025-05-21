@@ -814,14 +814,15 @@ CMakeFiles/binary_test.dir/test/binary_test.cpp.o: \
   /Users/zzc/Desktop/OOP\ homework/Finalproject/include/binary.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/fstream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/list \
-  /Users/zzc/Desktop/OOP\ homework/Finalproject/external/googletest/googletest/include/gtest/gtest.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/set \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/__tree \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/map \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/iostream \
+  /Users/zzc/Desktop/OOP\ homework/Finalproject/external/googletest/googletest/include/gtest/gtest.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/sstream \
   /Users/zzc/Desktop/OOP\ homework/Finalproject/external/googletest/googletest/include/gtest/gtest-assertion-result.h \
   /Users/zzc/Desktop/OOP\ homework/Finalproject/external/googletest/googletest/include/gtest/gtest-message.h \
   /Users/zzc/Desktop/OOP\ homework/Finalproject/external/googletest/googletest/include/gtest/internal/gtest-port.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/iostream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/include/sys/stat.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/include/sys/_types/_s_ifmt.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/include/sys/_types/_filesec_t.h \
@@ -858,7 +859,6 @@ CMakeFiles/binary_test.dir/test/binary_test.cpp.o: \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/float.h \
   /Library/Developer/CommandLineTools/usr/lib/clang/17/include/float.h \
   /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/include/float.h \
-  /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk/usr/include/c++/v1/map \
   /Users/zzc/Desktop/OOP\ homework/Finalproject/external/googletest/googletest/include/gtest/internal/gtest-filepath.h \
   /Users/zzc/Desktop/OOP\ homework/Finalproject/external/googletest/googletest/include/gtest/internal/gtest-string.h \
   /Users/zzc/Desktop/OOP\ homework/Finalproject/external/googletest/googletest/include/gtest/internal/gtest-type-util.h \

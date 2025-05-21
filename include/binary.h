@@ -15,6 +15,11 @@ Both modules should provide a convenient mechanism (by macro, template, etc.) to
 #include <type_traits> // 添加此头文件以支持 std::enable_if 和 std::is_arithmetic
 #include <list> 
 #include <vector>
+#include <stdexcept> // std::runtime_error
+#include <set>
+#include <map>
+#include <iostream>
+
 
 
 namespace binary
@@ -59,6 +64,20 @@ namespace binary
 
    template <typename T>
    void readfromfile(std::list<T> &t, std::ifstream &file);
+
+   // std::set
+   template <typename T>
+   void writeintofile(const std::set<T> &t, std::ofstream &file);
+
+   template <typename T>
+   void readfromfile(std::set<T> &t, std::ifstream &file);
+
+   // std::map
+   template <typename K, typename V>
+   void writeintofile(const std::map<K, V> &t, std::ofstream &file);
+
+   template <typename K, typename V>
+   void readfromfile(std::map<K, V> &t, std::ifstream &file);
 
 
 
@@ -253,6 +272,81 @@ namespace binary
          readfromfile(item, file);
       }
    }
+
+   /**
+    * @brief Write the std::set type to a binary file.
+    * @tparam 为 std::set 类型专门提供序列化实现
+    */
+   template <typename T>
+   void writeintofile(const std::set<T> &t, std::ofstream &file)
+   {
+      // Write the size of the set
+      size_t size = t.size();
+      file.write(reinterpret_cast<const char *>(&size), sizeof(size));
+      for (const auto &item : t)
+      {
+         writeintofile(item, file);
+      }
+   }
+
+   /**
+    * @brief Read the std::set type from a binary file.
+    * @tparam 为 std::set 类型专门提供反序列化实现
+    */
+   template <typename T>
+   void readfromfile(std::set<T> &t, std::ifstream &file)
+   {
+      // Read the size of the set
+      size_t size;
+      file.read(reinterpret_cast<char *>(&size), sizeof(size));
+      
+      // 清空 set，然后读取元素并插入
+      t.clear();
+      for (size_t i = 0; i < size; ++i)
+      {
+         T item;
+         readfromfile(item, file);
+         t.insert(item);
+      }
+   }
+
+   /**
+    * @brief Write the std::map type to a binary file.
+    * @tparam 为 std::map 类型专门提供序列化实现
+    */
+   template <typename K, typename V>
+   void writeintofile(const std::map<K, V> &t, std::ofstream &file)
+   {
+      // Write the size of the map
+      size_t size = t.size();
+      file.write(reinterpret_cast<const char *>(&size), sizeof(size));
+      for (const auto &item : t)
+      {
+         writeintofile(item.first, file);
+         writeintofile(item.second, file);
+      }
+   }
+
+   /**
+    * @brief Read the std::map type from a binary file.
+    * @tparam 为 std::map 类型专门提供反序列化实现
+    */
+   template <typename K, typename V>
+   void readfromfile(std::map<K, V> &t, std::ifstream &file)
+   {
+      // Read the size of the map
+      size_t size;
+      file.read(reinterpret_cast<char *>(&size), sizeof(size));
+      for (size_t i = 0; i < size; ++i)
+      {
+         K key;
+         V value;
+         readfromfile(key, file);
+         readfromfile(value, file);
+         t[key] = value;
+      }
+   }
+
 
 
 
