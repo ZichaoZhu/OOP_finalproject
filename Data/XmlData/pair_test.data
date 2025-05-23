@@ -1,0 +1,10 @@
+<serialization>
+    <std_pair>
+        <first>
+            <value val="1"/>
+        </first>
+        <second>
+            <value val="Hello, world."/>
+        </second>
+    </std_pair>
+</serialization>

@@ -1,0 +1,19 @@
+<serialization>
+    <std_vector>
+        <element>
+            <value val="4"/>
+        </element>
+        <element>
+            <value val="5"/>
+        </element>
+        <element>
+            <value val="6"/>
+        </element>
+        <element>
+            <value val="7"/>
+        </element>
+        <element>
+            <value val="8"/>
+        </element>
+    </std_vector>
+</serialization>

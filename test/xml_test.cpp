@@ -30,6 +30,29 @@ TEST(XmlTest, StringSerialization)
     ASSERT_EQ(original_string, deserialized_string);
 }
 
+// 测试 std::pair 类型的序列化与反序列化
+TEST(XmlTest, PairSerialization)
+{
+    std::pair<int, std::string> original_pair(1, "Hello, world.");
+    xml::serialize(original_pair, "std_pair", DataDir + "pair_test.data");
+    
+    std::pair<int, std::string> deserialized_pair;
+    xml::deserialize(deserialized_pair, "std_pair", DataDir + "pair_test.data");
+    ASSERT_EQ(original_pair, deserialized_pair);
+}
+
+// 测试 std::vector 类型的序列化与反序列化
+TEST(XmlTest, VectorSerialization)
+{
+    std::vector<int> original_vector = {4, 5, 6, 7, 8};
+    xml::serialize(original_vector, "std_vector", DataDir + "vector_test.data");
+    
+    std::vector<int> deserialized_vector;
+    xml::deserialize(deserialized_vector, "std_vector", DataDir + "vector_test.data");
+    
+    ASSERT_EQ(original_vector, deserialized_vector);
+}
+
 int main(int argc, char **argv)
 {
     std::filesystem::remove_all(DataDir);
