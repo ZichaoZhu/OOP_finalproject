@@ -7,8 +7,17 @@
         {
             "type": "lldb",
             "request": "launch",
-            "name": "Debug",
+            "name": "Binary Debug",
             "program": "${workspaceFolder}/build/bin/binary_test",
+            "args": [],
+            "cwd": "${workspaceFolder}",
+            "preLaunchTask": "Build Project"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Xml Debug",
+            "program": "${workspaceFolder}/build/bin/xml_test",
             "args": [],
             "cwd": "${workspaceFolder}",
             "preLaunchTask": "Build Project"
