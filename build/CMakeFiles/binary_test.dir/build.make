@@ -98,6 +98,7 @@ bin/binary_test: CMakeFiles/binary_test.dir/build.make
 bin/binary_test: libbinary_lib.a
 bin/binary_test: lib/libgtest.a
 bin/binary_test: lib/libgtest_main.a
+bin/binary_test: external/tinyxml2/libtinyxml2.a
 bin/binary_test: lib/libgtest.a
 bin/binary_test: CMakeFiles/binary_test.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="/Users/zzc/Desktop/OOP homework/Finalproject/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable bin/binary_test"

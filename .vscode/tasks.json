@@ -37,10 +37,23 @@
             "dependsOn": "Configure CMake" // 依赖 CMake 配置任务
         },
         {
-            "label": "Run Program",
+            "label": "Run binary test",
             "type": "shell",
             "command": "${workspaceFolder}/build/bin/binary_test",
-            "dependsOn": "Build Project",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "presentation": {
+                "reveal": "always",
+                "panel": "new",
+                "focus": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "Run xml test",
+            "type": "shell",
+            "command": "${workspaceFolder}/build/bin/xml_test",
             "options": {
                 "cwd": "${workspaceFolder}"
             },

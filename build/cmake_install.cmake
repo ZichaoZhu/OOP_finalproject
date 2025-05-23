@@ -40,6 +40,7 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/Users/zzc/Desktop/OOP homework/Finalproject/build/external/googletest/cmake_install.cmake")
+  include("/Users/zzc/Desktop/OOP homework/Finalproject/build/external/tinyxml2/cmake_install.cmake")
 
 endif()
 
