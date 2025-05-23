@@ -1,1 +1,1 @@
-/usr/bin/c++ -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/xmltest.dir/xmltest.cpp.o -o ../../bin/xmltest  libtinyxml2.a
+/Library/Developer/CommandLineTools/usr/bin/c++ -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/xmltest.dir/xmltest.cpp.o -o ../../bin/xmltest  libtinyxml2.a

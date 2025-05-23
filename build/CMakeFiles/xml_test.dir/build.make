@@ -76,15 +76,15 @@ CMakeFiles/xml_test.dir/test/xml_test.cpp.o: CMakeFiles/xml_test.dir/flags.make
 CMakeFiles/xml_test.dir/test/xml_test.cpp.o: /Users/zzc/Desktop/OOP\ homework/Finalproject/test/xml_test.cpp
 CMakeFiles/xml_test.dir/test/xml_test.cpp.o: CMakeFiles/xml_test.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/zzc/Desktop/OOP homework/Finalproject/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/xml_test.dir/test/xml_test.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xml_test.dir/test/xml_test.cpp.o -MF CMakeFiles/xml_test.dir/test/xml_test.cpp.o.d -o CMakeFiles/xml_test.dir/test/xml_test.cpp.o -c "/Users/zzc/Desktop/OOP homework/Finalproject/test/xml_test.cpp"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/xml_test.dir/test/xml_test.cpp.o -MF CMakeFiles/xml_test.dir/test/xml_test.cpp.o.d -o CMakeFiles/xml_test.dir/test/xml_test.cpp.o -c "/Users/zzc/Desktop/OOP homework/Finalproject/test/xml_test.cpp"
 
 CMakeFiles/xml_test.dir/test/xml_test.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/xml_test.dir/test/xml_test.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/zzc/Desktop/OOP homework/Finalproject/test/xml_test.cpp" > CMakeFiles/xml_test.dir/test/xml_test.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/zzc/Desktop/OOP homework/Finalproject/test/xml_test.cpp" > CMakeFiles/xml_test.dir/test/xml_test.cpp.i
 
 CMakeFiles/xml_test.dir/test/xml_test.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/xml_test.dir/test/xml_test.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/zzc/Desktop/OOP homework/Finalproject/test/xml_test.cpp" -o CMakeFiles/xml_test.dir/test/xml_test.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/zzc/Desktop/OOP homework/Finalproject/test/xml_test.cpp" -o CMakeFiles/xml_test.dir/test/xml_test.cpp.s
 
 # Object files for target xml_test
 xml_test_OBJECTS = \

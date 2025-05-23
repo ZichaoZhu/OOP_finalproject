@@ -6,7 +6,7 @@
 #include <string>
 #include <utility>
 
-std::string DataDir = "BinaryData/";
+std::string DataDir = "Data/BinaryData/";
 
 // 测试 int 类型的序列化与反序列化
 TEST(BinaryTest, IntSerialization)
@@ -156,7 +156,7 @@ TEST(BinaryTest, UserDefinedTypeSerialization)
 int main(int argc, char **argv)
 {
     std::filesystem::remove_all(DataDir);
-    std::filesystem::create_directory(DataDir);
+    std::filesystem::create_directories(DataDir);
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

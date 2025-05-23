@@ -76,15 +76,15 @@ external/tinyxml2/CMakeFiles/tinyxml2.dir/tinyxml2.cpp.o: external/tinyxml2/CMak
 external/tinyxml2/CMakeFiles/tinyxml2.dir/tinyxml2.cpp.o: /Users/zzc/Desktop/OOP\ homework/Finalproject/external/tinyxml2/tinyxml2.cpp
 external/tinyxml2/CMakeFiles/tinyxml2.dir/tinyxml2.cpp.o: external/tinyxml2/CMakeFiles/tinyxml2.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/zzc/Desktop/OOP homework/Finalproject/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object external/tinyxml2/CMakeFiles/tinyxml2.dir/tinyxml2.cpp.o"
-	cd "/Users/zzc/Desktop/OOP homework/Finalproject/build/external/tinyxml2" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT external/tinyxml2/CMakeFiles/tinyxml2.dir/tinyxml2.cpp.o -MF CMakeFiles/tinyxml2.dir/tinyxml2.cpp.o.d -o CMakeFiles/tinyxml2.dir/tinyxml2.cpp.o -c "/Users/zzc/Desktop/OOP homework/Finalproject/external/tinyxml2/tinyxml2.cpp"
+	cd "/Users/zzc/Desktop/OOP homework/Finalproject/build/external/tinyxml2" && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT external/tinyxml2/CMakeFiles/tinyxml2.dir/tinyxml2.cpp.o -MF CMakeFiles/tinyxml2.dir/tinyxml2.cpp.o.d -o CMakeFiles/tinyxml2.dir/tinyxml2.cpp.o -c "/Users/zzc/Desktop/OOP homework/Finalproject/external/tinyxml2/tinyxml2.cpp"
 
 external/tinyxml2/CMakeFiles/tinyxml2.dir/tinyxml2.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/tinyxml2.dir/tinyxml2.cpp.i"
-	cd "/Users/zzc/Desktop/OOP homework/Finalproject/build/external/tinyxml2" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/zzc/Desktop/OOP homework/Finalproject/external/tinyxml2/tinyxml2.cpp" > CMakeFiles/tinyxml2.dir/tinyxml2.cpp.i
+	cd "/Users/zzc/Desktop/OOP homework/Finalproject/build/external/tinyxml2" && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/zzc/Desktop/OOP homework/Finalproject/external/tinyxml2/tinyxml2.cpp" > CMakeFiles/tinyxml2.dir/tinyxml2.cpp.i
 
 external/tinyxml2/CMakeFiles/tinyxml2.dir/tinyxml2.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/tinyxml2.dir/tinyxml2.cpp.s"
-	cd "/Users/zzc/Desktop/OOP homework/Finalproject/build/external/tinyxml2" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/zzc/Desktop/OOP homework/Finalproject/external/tinyxml2/tinyxml2.cpp" -o CMakeFiles/tinyxml2.dir/tinyxml2.cpp.s
+	cd "/Users/zzc/Desktop/OOP homework/Finalproject/build/external/tinyxml2" && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/zzc/Desktop/OOP homework/Finalproject/external/tinyxml2/tinyxml2.cpp" -o CMakeFiles/tinyxml2.dir/tinyxml2.cpp.s
 
 # Object files for target tinyxml2
 tinyxml2_OBJECTS = \

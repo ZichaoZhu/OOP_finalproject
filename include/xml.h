@@ -48,6 +48,41 @@ namespace xml
         }
     }
 
+    /**
+     * @brief Write the std::string type to XML.
+     * @tparam Write as this format: <val = "...">
+     */
+    template<typename T>
+    typename std::enable_if<std::is_same<T, std::string>::value, void>::type
+    writeintoXML(const T &t, tinyxml2::XMLElement &Eletype)
+    {
+        // Create a new element for the value
+        tinyxml2::XMLElement *Eleval = Eletype.GetDocument()->NewElement("value");
+        Eleval->SetAttribute("val", t.c_str());
+        Eletype.InsertEndChild(Eleval);
+    }
+    
+    /**
+     * @brief Read the std::string type from XML.
+     * @tparam Read as this format: <val = "...">
+     */
+    template<typename T>
+    typename std::enable_if<std::is_same<T, std::string>::value, void>::type
+    readfromXML(T &t, tinyxml2::XMLElement &Eletype)
+    {
+        // Get the value element
+        tinyxml2::XMLElement *Eleval = Eletype.FirstChildElement("value");
+        if (Eleval)
+        {
+            // Get the value attribute
+            const char *val = Eleval->Attribute("val");
+            if (val)
+            {
+                t = std::string(val);
+            }
+        }
+    }
+    
 
 
     template <typename T>

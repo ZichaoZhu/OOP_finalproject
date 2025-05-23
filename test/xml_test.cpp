@@ -8,7 +8,7 @@
 #include <vector>
 #include <map>
 
-std::string DataDir = "XmlData/";
+std::string DataDir = "Data/XmlData/";
 
 // 测试 int 类型的序列化与反序列化
 TEST(XmlTest, IntSerialization)
@@ -20,11 +20,20 @@ TEST(XmlTest, IntSerialization)
     ASSERT_EQ(original_int, deserialized_int);
 }
 
+// 测试 std::string 类型的序列化与反序列化
+TEST(XmlTest, StringSerialization)
+{
+    std::string original_string = "Hello, World!";
+    xml::serialize(original_string, "std_string", DataDir + "string_test.data");
+    std::string deserialized_string;
+    xml::deserialize(deserialized_string, "std_string", DataDir + "string_test.data");
+    ASSERT_EQ(original_string, deserialized_string);
+}
 
 int main(int argc, char **argv)
 {
     std::filesystem::remove_all(DataDir);
-    std::filesystem::create_directory(DataDir);
+    std::filesystem::create_directories(DataDir);
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }

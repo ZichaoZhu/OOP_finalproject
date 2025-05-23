@@ -76,15 +76,15 @@ CMakeFiles/binary_lib.dir/src/binary.cpp.o: CMakeFiles/binary_lib.dir/flags.make
 CMakeFiles/binary_lib.dir/src/binary.cpp.o: /Users/zzc/Desktop/OOP\ homework/Finalproject/src/binary.cpp
 CMakeFiles/binary_lib.dir/src/binary.cpp.o: CMakeFiles/binary_lib.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/zzc/Desktop/OOP homework/Finalproject/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/binary_lib.dir/src/binary.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/binary_lib.dir/src/binary.cpp.o -MF CMakeFiles/binary_lib.dir/src/binary.cpp.o.d -o CMakeFiles/binary_lib.dir/src/binary.cpp.o -c "/Users/zzc/Desktop/OOP homework/Finalproject/src/binary.cpp"
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/binary_lib.dir/src/binary.cpp.o -MF CMakeFiles/binary_lib.dir/src/binary.cpp.o.d -o CMakeFiles/binary_lib.dir/src/binary.cpp.o -c "/Users/zzc/Desktop/OOP homework/Finalproject/src/binary.cpp"
 
 CMakeFiles/binary_lib.dir/src/binary.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/binary_lib.dir/src/binary.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/zzc/Desktop/OOP homework/Finalproject/src/binary.cpp" > CMakeFiles/binary_lib.dir/src/binary.cpp.i
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/zzc/Desktop/OOP homework/Finalproject/src/binary.cpp" > CMakeFiles/binary_lib.dir/src/binary.cpp.i
 
 CMakeFiles/binary_lib.dir/src/binary.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/binary_lib.dir/src/binary.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/zzc/Desktop/OOP homework/Finalproject/src/binary.cpp" -o CMakeFiles/binary_lib.dir/src/binary.cpp.s
+	/Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/zzc/Desktop/OOP homework/Finalproject/src/binary.cpp" -o CMakeFiles/binary_lib.dir/src/binary.cpp.s
 
 # Object files for target binary_lib
 binary_lib_OBJECTS = \
