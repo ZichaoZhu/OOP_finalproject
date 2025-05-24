@@ -77,6 +77,18 @@ TEST(XmlTest, SetSerialization)
     ASSERT_EQ(original_set, deserialized_set);
 }
 
+// 测试 std::map 类型的序列化与反序列化
+TEST(XmlTest, MapSerialization)
+{
+    std::map<int, std::string> original_map = {{1, "one"}, {2, "two"}, {3, "three"}};
+    xml::serialize(original_map, "std_map", DataDir + "map_test.data");
+    
+    std::map<int, std::string> deserialized_map;
+    xml::deserialize(deserialized_map, "std_map", DataDir + "map_test.data");
+    
+    ASSERT_EQ(original_map, deserialized_map);
+}
+
 int main(int argc, char **argv)
 {
     std::filesystem::remove_all(DataDir);

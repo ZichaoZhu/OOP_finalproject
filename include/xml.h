@@ -13,6 +13,7 @@ Both modules should provide a convenient mechanism (by macro, template, etc.) to
 #include <utility> // std::pair
 #include <list>
 #include <set>
+#include <map>
 #include <type_traits>
 #include "tinyxml2.h"
 #include <iostream>
@@ -276,6 +277,76 @@ namespace xml
         }
     }
 
+    /**
+     * @brief Write the std::map type to XML.
+     * @tparam Write as this format: <element>
+     *                                  <key>
+     *                                      <value val=.../>
+     *                                  </key>
+     *                                  <value>
+     *                                      <value val=.../>
+     *                                  </value>
+     *                               </element>
+     *                        ...
+     */
+    template <typename K, typename V>
+    void writeintoXML(const std::map<K, V> &t, tinyxml2::XMLElement &Eletype)
+    {
+        // Write each element in the map
+        for (const auto &item : t)
+        {
+            // Create a new element for the map
+            tinyxml2::XMLElement *Elemap = Eletype.GetDocument()->NewElement("element");
+
+            // Create and add key element
+            tinyxml2::XMLElement *Elekey = Elemap->GetDocument()->NewElement("key");
+            writeintoXML(item.first, *Elekey);
+            Elemap->InsertEndChild(Elekey);
+
+            // Create and add value element
+            tinyxml2::XMLElement *Elevalue = Elemap->GetDocument()->NewElement("value");
+            writeintoXML(item.second, *Elevalue);
+            Elemap->InsertEndChild(Elevalue);
+
+            Eletype.InsertEndChild(Elemap);
+        }
+    }
+    /**
+     * @brief Read the std::map type from XML.
+     * @tparam Write as this format: <element>
+     *                                  <key>
+     *                                      <value val=.../>
+     *                                  </key>
+     *                                  <value>
+     *                                      <value val=.../>
+     *                                  </value>
+     *                               </element>
+     *                        ...
+     */
+    template <typename K, typename V>
+    void readfromXML(std::map<K, V> &t, tinyxml2::XMLElement &Eletype)
+    {
+        tinyxml2::XMLElement *Elemap = Eletype.FirstChildElement("element");
+        while (Elemap)
+        {
+            K key;
+            tinyxml2::XMLElement *Elekey = Elemap->FirstChildElement("key");
+            if (Elekey)
+            {
+                readfromXML(key, *Elekey);
+            }
+
+            V value;
+            tinyxml2::XMLElement *Elevalue = Elemap->FirstChildElement("value");
+            if (Elevalue)
+            {
+                readfromXML(value, *Elevalue);
+            }
+
+            t[key] = value;
+            Elemap = Elemap->NextSiblingElement("element");
+        }
+    }
 
     template <typename T>
     void serialize(const T &t, std::string nameoftype, std::string filename)
