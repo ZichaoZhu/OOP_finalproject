@@ -20,6 +20,66 @@ TEST(XmlTest, IntSerialization)
     ASSERT_EQ(original_int, deserialized_int);
 }
 
+// 测试 float 类型的序列化与反序列化
+TEST(XmlTest, FloatSerialization)
+{
+    float original_float = 3.14f;
+    xml::serialize(original_float, "std_float", DataDir + "float_test.data");
+    float deserialized_float = 0.0f;
+    xml::deserialize(deserialized_float, "std_float", DataDir + "float_test.data");
+    ASSERT_EQ(original_float, deserialized_float);
+}
+
+// 测试 double 类型的序列化与反序列化
+TEST(XmlTest, DoubleSerialization)
+{
+    double original_double = 3.14159;
+    xml::serialize(original_double, "std_double", DataDir + "double_test.data");
+    double deserialized_double = 0.0;
+    xml::deserialize(deserialized_double, "std_double", DataDir + "double_test.data");
+    ASSERT_EQ(original_double, deserialized_double);
+}
+
+// 测试 char 类型的序列化与反序列化
+TEST(XmlTest, CharSerialization)
+{
+    char original_char = 'A';
+    xml::serialize(original_char, "std_char", DataDir + "char_test.data");
+    char deserialized_char = 0;
+    xml::deserialize(deserialized_char, "std_char", DataDir + "char_test.data");
+    ASSERT_EQ(original_char, deserialized_char);
+}
+
+// 测试 bool 类型的序列化与反序列化
+TEST(XmlTest, BoolSerialization)
+{
+    bool original_bool = true;
+    xml::serialize(original_bool, "std_bool", DataDir + "bool_test.data");
+    bool deserialized_bool;
+    xml::deserialize(deserialized_bool, "std_bool", DataDir + "bool_test.data");
+    ASSERT_EQ(original_bool, deserialized_bool);
+}
+
+// 测试 char const 类型的序列化与反序列化
+TEST(XmlTest, CharConstSerialization)
+{
+    const char original_char = 'B';
+    xml::serialize(original_char, "std_char_const", DataDir + "char_const_test.data");
+    char deserialized_char = 0;
+    xml::deserialize(deserialized_char, "std_char_const", DataDir + "char_const_test.data");
+    ASSERT_EQ(original_char, deserialized_char);
+}
+
+// 测试 int const 类型的序列化与反序列化
+TEST(XmlTest, IntConstSerialization)
+{
+    const int original_int = 100;
+    xml::serialize(original_int, "std_int_const", DataDir + "int_const_test.data");
+    int deserialized_int = 0;
+    xml::deserialize(deserialized_int, "std_int_const", DataDir + "int_const_test.data");
+    ASSERT_EQ(original_int, deserialized_int);
+}
+
 // 测试 std::string 类型的序列化与反序列化
 TEST(XmlTest, StringSerialization)
 {

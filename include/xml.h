@@ -51,7 +51,9 @@ namespace xml
             const char *val = Eleval->Attribute("val");
             if (val)
             {
-                t = static_cast<T>(std::atof(val));
+                // Due with the bool type 
+                if (typeid(T) == typeid(bool)) t = strcmp(val, "true") == 0;           
+                else t = static_cast<T>(std::atof(val));
             }
         }
     }
