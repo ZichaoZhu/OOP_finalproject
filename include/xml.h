@@ -17,6 +17,7 @@ Both modules should provide a convenient mechanism (by macro, template, etc.) to
 #include <type_traits>
 #include "tinyxml2.h"
 #include <iostream>
+#include "userdefinetype.h" // 添加此头文件以支持用户自定义类型的序列化
 
 namespace xml
 {
@@ -345,6 +346,55 @@ namespace xml
 
             t[key] = value;
             Elemap = Elemap->NextSiblingElement("element");
+        }
+    }
+
+    /**
+     * @brief Serialize and deserialize the user-defined type.
+     * @tparam Write as this format: <element>
+     *                                  <value val=.../>
+     *                               </element>
+     */
+    void writeintoXML(const userdefinetype::UserDefinedType &t, tinyxml2::XMLElement &Eletype)
+    {
+        // 序列化 idx
+        tinyxml2::XMLElement *EleIdx = Eletype.GetDocument()->NewElement("element");
+        writeintoXML(t.idx, *EleIdx);
+        Eletype.InsertEndChild(EleIdx);
+
+        // 序列化 name
+        tinyxml2::XMLElement *EleName = Eletype.GetDocument()->NewElement("element");
+        writeintoXML(t.name, *EleName);
+        Eletype.InsertEndChild(EleName);
+
+        // 序列化 data
+        tinyxml2::XMLElement *EleData = Eletype.GetDocument()->NewElement("element");
+        writeintoXML(t.data, *EleData);
+        Eletype.InsertEndChild(EleData);
+    }
+
+    void readfromXML(userdefinetype::UserDefinedType &t, tinyxml2::XMLElement &Eletype)
+    {
+        // 反序列化 idx
+        tinyxml2::XMLElement *EleIdx = Eletype.FirstChildElement("element");
+        if (EleIdx)
+        {
+            readfromXML(t.idx, *EleIdx);
+            EleIdx = EleIdx->NextSiblingElement("element");
+        }
+
+        // 反序列化 name
+        if (EleIdx)
+        {
+            readfromXML(t.name, *EleIdx);
+            EleIdx = EleIdx->NextSiblingElement("element");
+        }
+
+        // 反序列化 data
+        if (EleIdx)
+        {
+            readfromXML(t.data, *EleIdx);
+            EleIdx = EleIdx->NextSiblingElement("element");
         }
     }
 

@@ -89,6 +89,22 @@ TEST(XmlTest, MapSerialization)
     ASSERT_EQ(original_map, deserialized_map);
 }
 
+// 测试用户自定义类型的序列化与反序列化
+TEST(XmlTest, UserDefinedTypeSerialization)
+{
+    userdefinetype::UserDefinedType original_user_defined;
+    userdefinetype::set(original_user_defined, 1, "test", {2.0, 3.0, 4.5});
+    
+    xml::serialize(original_user_defined, "user_defined", DataDir + "user_defined_test.data");
+    
+    userdefinetype::UserDefinedType deserialized_user_defined;
+    xml::deserialize(deserialized_user_defined, "user_defined", DataDir + "user_defined_test.data");
+    
+    ASSERT_EQ(original_user_defined.idx, deserialized_user_defined.idx);
+    ASSERT_EQ(original_user_defined.name, deserialized_user_defined.name);
+    ASSERT_EQ(original_user_defined.data, deserialized_user_defined.data);
+}
+
 int main(int argc, char **argv)
 {
     std::filesystem::remove_all(DataDir);
