@@ -18,6 +18,16 @@ TEST(BinaryTest, IntSerialization)
     ASSERT_EQ(original_int, deserialized_int);
 }
 
+// 测试 float 类型的序列化与反序列化
+TEST(BinaryTest, FloatSerialization)
+{
+    float original_float = 3.14f;
+    binary::serialize(original_float, DataDir + "float_test.data");
+    float deserialized_float = 0.0f;
+    binary::deserialize(deserialized_float, DataDir + "float_test.data");
+    ASSERT_EQ(original_float, deserialized_float);
+}
+
 // 测试 double 类型的序列化与反序列化
 TEST(BinaryTest, DoubleSerialization)
 {
@@ -38,29 +48,33 @@ TEST(BinaryTest, CharSerialization)
     ASSERT_EQ(original_char, deserialized_char);
 }
 
-// 测试多个算术类型的组合
-TEST(BinaryTest, MixedArithmeticSerialization)
+// 测试 bool 类型的序列化与反序列化
+TEST(BinaryTest, BoolSerialization)
 {
-    struct MixedData
-    {
-        int int_val;
-        double double_val;
-        char char_val;
-    };
+    bool original_bool = true;
+    binary::serialize(original_bool, DataDir + "bool_test.data");
+    bool deserialized_bool = false;
+    binary::deserialize(deserialized_bool, DataDir + "bool_test.data");
+    ASSERT_EQ(original_bool, deserialized_bool);
+}
+// 测试 char const 类型的序列化与反序列化
+TEST(BinaryTest, CharConstSerialization)
+{
+    const char original_char = 'B';
+    binary::serialize(original_char, DataDir + "char_const_test.data");
+    char deserialized_char = 0;
+    binary::deserialize(deserialized_char, DataDir + "char_const_test.data");
+    ASSERT_EQ(original_char, deserialized_char);
+}
 
-    MixedData original_data = {42, 3.14159, 'A'};
-    binary::serialize(original_data.int_val, DataDir + "mixed_int_test.data");
-    binary::serialize(original_data.double_val, DataDir + "mixed_double_test.data");
-    binary::serialize(original_data.char_val, DataDir + "mixed_char_test.data");
-
-    MixedData deserialized_data;
-    binary::deserialize(deserialized_data.int_val, DataDir + "mixed_int_test.data");
-    binary::deserialize(deserialized_data.double_val, DataDir + "mixed_double_test.data");
-    binary::deserialize(deserialized_data.char_val, DataDir + "mixed_char_test.data");
-
-    ASSERT_EQ(original_data.int_val, deserialized_data.int_val);
-    ASSERT_EQ(original_data.double_val, deserialized_data.double_val);
-    ASSERT_EQ(original_data.char_val, deserialized_data.char_val);
+// 测试 int const 类型的序列化与反序列化
+TEST(BinaryTest, IntConstSerialization)
+{
+    const int original_int = 100;
+    binary::serialize(original_int, DataDir + "int_const_test.data");
+    int deserialized_int = 0;
+    binary::deserialize(deserialized_int, DataDir + "int_const_test.data");
+    ASSERT_EQ(original_int, deserialized_int);
 }
 
 // 测试 std::string 的序列化
@@ -95,6 +109,18 @@ TEST(BinaryTest, VectorSerialization)
     binary::deserialize(deserialized_vector, DataDir + "vector_test.data");
     
     ASSERT_EQ(original_vector, deserialized_vector);
+}
+
+// 测试 vector<vector<int>> 的序列化
+TEST(BinaryTest, VectorOfVectorSerialization)
+{
+    std::vector<std::vector<int>> original_vector_of_vector = {{1, 2}, {3, 4}, {5, 6}};
+    binary::serialize(original_vector_of_vector, DataDir + "vector_of_vector_test.data");
+    
+    std::vector<std::vector<int>> deserialized_vector_of_vector;
+    binary::deserialize(deserialized_vector_of_vector, DataDir + "vector_of_vector_test.data");
+    
+    ASSERT_EQ(original_vector_of_vector, deserialized_vector_of_vector);
 }
 
 // 测试 std::list 的序列化
