@@ -12,6 +12,8 @@ Both modules should provide a convenient mechanism (by macro, template, etc.) to
 #include <vector>
 #include <utility> // std::pair
 #include <list>
+#include <set>
+#include <type_traits>
 #include "tinyxml2.h"
 #include <iostream>
 
@@ -180,6 +182,97 @@ namespace xml
             readfromXML(item, *Elevector);
             t.push_back(item);
             Elevector = Elevector->NextSiblingElement("element");
+        }
+    }
+
+    /**
+     * @brief Write the std::list type to XML.
+     * @tparam Write as this format: <element>
+     *                                  <value val = "...">
+     *                                </element>
+     *                                <element>
+     *                                  <value val = "...">
+     *                                </element>
+     *                                  ...
+     */
+    template <typename T>
+    void writeintoXML(const std::list<T> &t, tinyxml2::XMLElement &Eletype)
+    {
+        // Write each element in the list
+        for (const auto &item : t)
+        {
+            // Create a new element for the list
+            tinyxml2::XMLElement *Elelist = Eletype.GetDocument()->NewElement("element");
+            writeintoXML(item, *Elelist);
+            Eletype.InsertEndChild(Elelist);
+        }
+    }
+
+    /**
+     * @brief Read the std::list type from XML.
+     * @tparam Write as this format: <element>
+     *                                  <value val = "...">
+     *                                </element>
+     *                                <element>
+     *                                  <value val = "...">
+     *                                </element>
+     *                                  ...
+     */
+    template <typename T>
+    void readfromXML(std::list<T> &t, tinyxml2::XMLElement &Eletype)
+    {
+        tinyxml2::XMLElement *Elelist = Eletype.FirstChildElement("element");
+        while (Elelist)
+        {
+            T item;
+            readfromXML(item, *Elelist);
+            t.push_back(item);
+            Elelist = Elelist->NextSiblingElement("element");
+        }
+    }
+
+    /**
+     * @brief Write the std::set type to XML.
+     * @tparam Write as this format: <element>
+     *                                  <value val = "...">
+     *                                </element>
+     *                                <element>
+     *                                  <value val = "...">
+     *                                </element>
+     *                                  ...
+     */
+    template <typename T>
+    void writeintoXML(const std::set<T> &t, tinyxml2::XMLElement &Eletype)
+    {
+        // Write each element in the set
+        for (const auto &item : t)
+        {
+            // Create a new element for the set
+            tinyxml2::XMLElement *Eleset = Eletype.GetDocument()->NewElement("element");
+            writeintoXML(item, *Eleset);
+            Eletype.InsertEndChild(Eleset);
+        }
+    }
+    /**
+     * @brief Read the std::set type from XML.
+     * @tparam Write as this format: <element>
+     *                                  <value val = "...">
+     *                                </element>
+     *                                <element>
+     *                                  <value val = "...">
+     *                                </element>
+     *                                  ...
+     */
+    template <typename T>
+    void readfromXML(std::set<T> &t, tinyxml2::XMLElement &Eletype)
+    {
+        tinyxml2::XMLElement *Eleset = Eletype.FirstChildElement("element");
+        while (Eleset)
+        {
+            T item;
+            readfromXML(item, *Eleset);
+            t.insert(item);
+            Eleset = Eleset->NextSiblingElement("element");
         }
     }
 

@@ -53,6 +53,30 @@ TEST(XmlTest, VectorSerialization)
     ASSERT_EQ(original_vector, deserialized_vector);
 }
 
+// 测试 std::list 类型的序列化与反序列化
+TEST(XmlTest, ListSerialization)
+{
+    std::list<int> original_list = {1, 2, 3, 4, 5};
+    xml::serialize(original_list, "std_list", DataDir + "list_test.data");
+    
+    std::list<int> deserialized_list;
+    xml::deserialize(deserialized_list, "std_list", DataDir + "list_test.data");
+    
+    ASSERT_EQ(original_list, deserialized_list);
+}
+
+// 测试 std::set 类型的序列化与反序列化
+TEST(XmlTest, SetSerialization)
+{
+    std::set<int> original_set = {1, 2, 3, 4, 5};
+    xml::serialize(original_set, "std_set", DataDir + "set_test.data");
+    
+    std::set<int> deserialized_set;
+    xml::deserialize(deserialized_set, "std_set", DataDir + "set_test.data");
+    
+    ASSERT_EQ(original_set, deserialized_set);
+}
+
 int main(int argc, char **argv)
 {
     std::filesystem::remove_all(DataDir);
