@@ -226,6 +226,46 @@ TEST(BinaryTest, UserDefinedTypeSerialization)
     ASSERT_EQ(original_data.data, deserialized_data.data);
 }
 
+// 测试 std::unique_ptr 的序列化
+TEST(BinaryTest, UniquePtrSerialization)
+{
+    std::unique_ptr<int> original_ptr = std::make_unique<int>(42);
+    binary::serialize(original_ptr, DataDir + "unique_ptr_test.data");
+    
+    std::unique_ptr<int> deserialized_ptr;
+    binary::deserialize(deserialized_ptr, DataDir + "unique_ptr_test.data");
+    
+    ASSERT_TRUE(deserialized_ptr != nullptr);
+    ASSERT_EQ(*original_ptr, *deserialized_ptr);
+}
+
+// 测试 std::shared_ptr 的序列化
+TEST(BinaryTest, SharedPtrSerialization)
+{
+    std::shared_ptr<int> original_ptr = std::make_shared<int>(42);
+    binary::serialize(original_ptr, DataDir + "shared_ptr_test.data");
+    
+    std::shared_ptr<int> deserialized_ptr;
+    binary::deserialize(deserialized_ptr, DataDir + "shared_ptr_test.data");
+    
+    ASSERT_TRUE(deserialized_ptr != nullptr);
+    ASSERT_EQ(*original_ptr, *deserialized_ptr);
+}
+
+// 测试 std::weak_ptr 的序列化
+TEST(BinaryTest, WeakPtrSerialization)
+{
+    std::shared_ptr<int> shared_ptr = std::make_shared<int>(42);
+    std::weak_ptr<int> original_weak_ptr = shared_ptr;
+    binary::serialize(original_weak_ptr, DataDir + "weak_ptr_test.data");
+    
+    std::weak_ptr<int> deserialized_weak_ptr;
+    binary::deserialize(deserialized_weak_ptr, DataDir + "weak_ptr_test.data");
+    
+    ASSERT_TRUE(!deserialized_weak_ptr.expired());
+    ASSERT_EQ(*shared_ptr, *deserialized_weak_ptr.lock());
+}
+
 
 
 int main(int argc, char **argv)

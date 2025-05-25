@@ -303,12 +303,79 @@ namespace binary
     * @tparam 使用宏为用户自定义类型专门提供序列化实现
     */
    DEFINE_SERIALIZATION(userdefinetype::UserDefinedType,
-      writeintofile(t.idx, file);
-      writeintofile(t.name, file);
-      writeintofile(t.data, file);,
-      readfromfile(t.idx, file);
-      readfromfile(t.name, file);
-      readfromfile(t.data, file);)
+                        writeintofile(t.idx, file);
+                        writeintofile(t.name, file);
+                        writeintofile(t.data, file);,
+                        readfromfile(t.idx, file);
+                        readfromfile(t.name, file);
+                        readfromfile(t.data, file);)
+
+   /**
+    * @brief Write the unique_ptr type.
+    */
+   template <typename T>
+   void writeintofile(const std::unique_ptr<T> &ptr, std::ofstream &file)
+   {
+      if (ptr)
+      {
+         writeintofile(*ptr, file);
+      }
+   }
+
+   /**
+    * @brief Read the unique_ptr type.
+    */
+   template <typename T>
+   void readfromfile(std::unique_ptr<T> &ptr, std::ifstream &file)
+   {
+      ptr = std::make_unique<T>();
+      readfromfile(*ptr, file);
+   }
+
+   /**
+    * @brief Write the shared_ptr type.
+    */
+   template <typename T>
+   void writeintofile(const std::shared_ptr<T> &ptr, std::ofstream &file)
+   {
+      if (ptr)
+      {
+         writeintofile(*ptr, file);
+      }
+   }
+   /**
+    * @brief Read the shared_ptr type.
+    */
+   template <typename T>
+   void readfromfile(std::shared_ptr<T> &ptr, std::ifstream &file)
+   {
+      ptr = std::make_shared<T>();
+      readfromfile(*ptr, file);
+   }
+
+   /**
+    * @brief Write the weak_ptr type.
+    */
+   template <typename T>
+   void writeintofile(const std::weak_ptr<T> &ptr, std::ofstream &file)
+   {
+      if (auto sharedPtr = ptr.lock())
+      {
+         writeintofile(*sharedPtr, file);
+      }
+   }
+   /**
+    * @brief Read the weak_ptr type.
+    */
+   template <typename T>
+   void readfromfile(std::weak_ptr<T> &ptr, std::ifstream &file)
+   {
+      static auto sharedPtr = std::make_shared<T>();
+      readfromfile(*sharedPtr, file);
+      ptr = sharedPtr;
+   }
+
+
 
    // serial and deserial function
    template <typename T>
