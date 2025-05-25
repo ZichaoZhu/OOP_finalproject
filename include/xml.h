@@ -443,6 +443,79 @@ namespace xml
         }
     }
 
+    /**
+     * @brief Write the unique_ptr type.
+     * @tparam Write as this format:<value val=.../>                                                          
+     */
+    template <typename T>
+    void writeintoXML(const std::unique_ptr<T> &ptr, tinyxml2::XMLElement &Eletype)
+    {
+        if (ptr)
+        {
+            writeintoXML(*ptr, Eletype);
+        }
+    }
+
+    /**
+     * @brief Read the unique_ptr type.
+     * @tparam Read as this format:<value val=.../>                                                          
+     */
+    template <typename T>
+    void readfromXML(std::unique_ptr<T> &ptr, tinyxml2::XMLElement &Eletype)
+    {
+        ptr = std::make_unique<T>();
+        readfromXML(*ptr, Eletype);
+    }
+
+    /**
+     * @brief Read the shared_ptr type.
+     * @tparam Read as this format:<value val=.../>                                                          
+     */
+    template <typename T>
+    void writeintoXML(const std::shared_ptr<T> &ptr, tinyxml2::XMLElement &Eletype)
+    {
+        if (ptr)
+        {
+            writeintoXML(*ptr, Eletype);
+        }
+    }
+    /**
+     * @brief Read the shared_ptr type.
+     * @tparam Read as this format:<value val=.../>                                                          
+     */
+    template <typename T>
+    void readfromXML(std::shared_ptr<T> &ptr, tinyxml2::XMLElement &Eletype)
+    {
+        ptr = std::make_shared<T>();
+        readfromXML(*ptr, Eletype);
+    }
+
+    /**
+     * @brief Write the weak_ptr type.
+     * @tparam Write as this format:<value val=.../>                                                          
+     */
+    template <typename T>
+    void writeintoXML(const std::weak_ptr<T> &ptr, tinyxml2::XMLElement &Eletype)
+    {
+        if (auto sharedPtr = ptr.lock())
+        {
+            writeintoXML(*sharedPtr, Eletype);
+        }
+    }
+
+    /**
+     * @brief Read the weak_ptr type.
+     * @tparam Read as this format:<value val=.../>                                                          
+     */
+    template <typename T>
+    void readfromXML(std::weak_ptr<T> &ptr, tinyxml2::XMLElement &Eletype)
+    {
+        // Create a shared_ptr to hold the deserialized object
+        static std::shared_ptr<T> sharedPtr = std::make_shared<T>();
+        readfromXML(*sharedPtr, Eletype);
+        ptr = sharedPtr;
+    }
+
     template <typename T>
     void serialize(const T &t, std::string nameoftype, std::string filename)
     {

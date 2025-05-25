@@ -249,6 +249,46 @@ TEST(XmlTest, BinarySerialization)
     ASSERT_EQ(original_binary, deserialized_binary);
 }
 
+// 测试 std::unique_ptr 类型的序列化与反序列化
+TEST(XmlTest, UniquePtrSerialization)
+{
+    std::unique_ptr<int> original_ptr = std::make_unique<int>(42);
+    xml::serialize(original_ptr, "std_unique_ptr", DataDir + "unique_ptr_test.data");
+
+    std::unique_ptr<int> deserialized_ptr;
+    xml::deserialize(deserialized_ptr, "std_unique_ptr", DataDir + "unique_ptr_test.data");
+
+    ASSERT_TRUE(deserialized_ptr != nullptr);
+    ASSERT_EQ(*original_ptr, *deserialized_ptr);
+}
+
+// 测试 std::weak_ptr 类型的序列化与反序列化
+TEST(XmlTest, WeakPtrSerialization)
+{
+    std::shared_ptr<int> shared_ptr = std::make_shared<int>(42);
+    std::weak_ptr<int> original_weak_ptr(shared_ptr);
+    xml::serialize(original_weak_ptr, "std_weak_ptr", DataDir + "weak_ptr_test.data");
+
+    std::weak_ptr<int> deserialized_weak_ptr;
+    xml::deserialize(deserialized_weak_ptr, "std_weak_ptr", DataDir + "weak_ptr_test.data");
+
+    ASSERT_TRUE(!deserialized_weak_ptr.expired());
+    ASSERT_EQ(*shared_ptr, *deserialized_weak_ptr.lock());
+}
+
+// 测试 std::shared_ptr 类型的序列化与反序列化
+TEST(XmlTest, SharedPtrSerialization)
+{
+    std::shared_ptr<int> original_shared_ptr = std::make_shared<int>(42);
+    xml::serialize(original_shared_ptr, "std_shared_ptr", DataDir + "shared_ptr_test.data");
+
+    std::shared_ptr<int> deserialized_shared_ptr;
+    xml::deserialize(deserialized_shared_ptr, "std_shared_ptr", DataDir + "shared_ptr_test.data");
+
+    ASSERT_TRUE(deserialized_shared_ptr != nullptr);
+    ASSERT_EQ(*original_shared_ptr, *deserialized_shared_ptr);
+}
+
 int main(int argc, char **argv)
 {
     std::filesystem::remove_all(DataDir);
