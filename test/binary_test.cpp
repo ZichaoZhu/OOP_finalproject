@@ -57,6 +57,7 @@ TEST(BinaryTest, BoolSerialization)
     binary::deserialize(deserialized_bool, DataDir + "bool_test.data");
     ASSERT_EQ(original_bool, deserialized_bool);
 }
+
 // 测试 char const 类型的序列化与反序列化
 TEST(BinaryTest, CharConstSerialization)
 {
@@ -111,6 +112,18 @@ TEST(BinaryTest, VectorSerialization)
     ASSERT_EQ(original_vector, deserialized_vector);
 }
 
+// 测试 std::vector<bool> 的序列化
+TEST(BinaryTest, VectorBoolSerialization)
+{
+    std::vector<bool> original_vector_bool = {true, false, true, false};
+    binary::serialize(original_vector_bool, DataDir + "vector_bool_test.data");
+    
+    std::vector<bool> deserialized_vector_bool;
+    binary::deserialize(deserialized_vector_bool, DataDir + "vector_bool_test.data");
+    
+    ASSERT_EQ(original_vector_bool, deserialized_vector_bool);
+}
+
 // 测试 vector<vector<int>> 的序列化
 TEST(BinaryTest, VectorOfVectorSerialization)
 {
@@ -135,6 +148,18 @@ TEST(BinaryTest, ListSerialization)
     ASSERT_EQ(original_list, deserialized_list);
 }
 
+// 测试 std::list<bool> 的序列化
+TEST(BinaryTest, ListBoolSerialization)
+{
+    std::list<bool> original_list_bool = {true, false, true, false};
+    binary::serialize(original_list_bool, DataDir + "list_bool_test.data");
+    
+    std::list<bool> deserialized_list_bool;
+    binary::deserialize(deserialized_list_bool, DataDir + "list_bool_test.data");
+    
+    ASSERT_EQ(original_list_bool, deserialized_list_bool);
+}
+
 // 测试 std::set 的序列化
 TEST(BinaryTest, SetSerialization)
 {
@@ -147,6 +172,18 @@ TEST(BinaryTest, SetSerialization)
     ASSERT_EQ(original_set, deserialized_set);
 }
 
+// 测试 std::set<bool> 的序列化
+TEST(BinaryTest, SetBoolSerialization)
+{
+    std::set<bool> original_set_bool = {true, false};
+    binary::serialize(original_set_bool, DataDir + "set_bool_test.data");
+    
+    std::set<bool> deserialized_set_bool;
+    binary::deserialize(deserialized_set_bool, DataDir + "set_bool_test.data");
+    
+    ASSERT_EQ(original_set_bool, deserialized_set_bool);
+}
+
 // 测试 std::map 的序列化
 TEST(BinaryTest, MapSerialization)
 {
@@ -157,6 +194,18 @@ TEST(BinaryTest, MapSerialization)
     binary::deserialize(deserialized_map, DataDir + "map_test.data");
     
     ASSERT_EQ(original_map, deserialized_map);
+}
+
+// 测试 std::map<bool, bool> 的序列化
+TEST(BinaryTest, MapBoolSerialization)
+{
+    std::map<bool, bool> original_map_bool = {{true, false}, {false, true}};
+    binary::serialize(original_map_bool, DataDir + "map_bool_test.data");
+    
+    std::map<bool, bool> deserialized_map_bool;
+    binary::deserialize(deserialized_map_bool, DataDir + "map_bool_test.data");
+    
+    ASSERT_EQ(original_map_bool, deserialized_map_bool);
 }
 
 // 测试自定义类型的序列化

@@ -160,6 +160,39 @@ namespace binary
    }
 
    /**
+    * @brief Write the std::vector<bool> type to a binary file.
+    * @tparam 为 std::vector<bool> 类型专门提供序列化实现
+    */
+   void writeintofile(const std::vector<bool> &t, std::ofstream &file)
+   {
+      // Write the size of the vector
+      size_t size = t.size();
+      file.write(reinterpret_cast<const char *>(&size), sizeof(size));
+      for (size_t i = 0; i < size; ++i)
+      {
+         bool value = t[i];
+         file.write(reinterpret_cast<const char *>(&value), sizeof(bool));
+      }
+   }
+   /**
+    * @brief Read the std::vector<bool> type from a binary file.
+    * @tparam 为 std::vector<bool> 类型专门提供反序列化实现
+    */
+   void readfromfile(std::vector<bool> &t, std::ifstream &file)
+   {
+      // Read the size of the vector
+      size_t size;
+      file.read(reinterpret_cast<char *>(&size), sizeof(size));
+      t.resize(size);
+      for (size_t i = 0; i < size; ++i)
+      {
+         bool value;
+         file.read(reinterpret_cast<char *>(&value), sizeof(bool));
+         t[i] = value;
+      }
+   }
+
+   /**
     * @brief Write the std::list type to a binary file.
     * @tparam 为 std::list 类型专门提供序列化实现
     */
