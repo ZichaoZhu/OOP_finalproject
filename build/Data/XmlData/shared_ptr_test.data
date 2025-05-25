@@ -1,5 +1,0 @@
-<serialization>
-    <std_shared_ptr>
-        <value val="42"/>
-    </std_shared_ptr>
-</serialization>
