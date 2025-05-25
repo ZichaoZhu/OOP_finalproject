@@ -1,0 +1,1 @@
+/usr/bin/c++  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/xmltest.dir/xmltest.cpp.o -o ../../bin/xmltest  libtinyxml2.a
