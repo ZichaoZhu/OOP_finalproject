@@ -1,5 +1,5 @@
 ## 简介
-这是我的OOP-Final-Project
+这是我的OOP-Final-Project。
 
 ## 实现功能
 目前这个Project实现了题目所要求的大部分功能。现做列举：
