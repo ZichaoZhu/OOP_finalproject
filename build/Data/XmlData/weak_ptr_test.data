@@ -1,5 +1,0 @@
-<serialization>
-    <std_weak_ptr>
-        <value val="42"/>
-    </std_weak_ptr>
-</serialization>

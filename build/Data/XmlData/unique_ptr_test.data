@@ -1,5 +1,0 @@
-<serialization>
-    <std_unique_ptr>
-        <value val="42"/>
-    </std_unique_ptr>
-</serialization>
