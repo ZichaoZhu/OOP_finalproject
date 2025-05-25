@@ -1,0 +1,8 @@
+<serialization>
+    <std_vector_bool>
+        <element val="true"/>
+        <element val="false"/>
+        <element val="true"/>
+        <element val="false"/>
+    </std_vector_bool>
+</serialization>
