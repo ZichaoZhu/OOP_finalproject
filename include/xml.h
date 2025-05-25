@@ -480,4 +480,16 @@ namespace xml
 
         readfromXML(t, *Eletype); // 解引用指针
     }
+
+    // Base64 编码函数
+    std::string base64Encode(const std::vector<uint8_t> &data);
+
+    // Base64 解码函数
+    std::vector<uint8_t> base64Decode(const std::string &encoded);
+
+    // 针对二进制数据的序列化
+    void writeintoXML(const std::vector<uint8_t> &binaryData, tinyxml2::XMLElement &Eletype);
+
+    // 针对二进制数据的反序列化
+    void readfromXML(std::vector<uint8_t> &binaryData, tinyxml2::XMLElement &Eletype);
 }

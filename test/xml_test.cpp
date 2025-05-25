@@ -237,6 +237,18 @@ TEST(XmlTest, UserDefinedTypeSerialization)
     ASSERT_EQ(original_user_defined.data, deserialized_user_defined.data);
 }
 
+// 测试二进制类型的序列化与反序列化
+TEST(XmlTest, BinarySerialization)
+{
+    std::vector<uint8_t> original_binary = {0x01, 0x02, 0x03, 0x04, 0x05};
+    xml::serialize(original_binary, "std_binary", DataDir + "binary_test.data");
+    
+    std::vector<uint8_t> deserialized_binary;
+    xml::deserialize(deserialized_binary, "std_binary", DataDir + "binary_test.data");
+    
+    ASSERT_EQ(original_binary, deserialized_binary);
+}
+
 int main(int argc, char **argv)
 {
     std::filesystem::remove_all(DataDir);
