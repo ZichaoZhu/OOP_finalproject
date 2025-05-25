@@ -76,15 +76,15 @@ external/tinyxml2/CMakeFiles/xmltest.dir/xmltest.cpp.o: external/tinyxml2/CMakeF
 external/tinyxml2/CMakeFiles/xmltest.dir/xmltest.cpp.o: /Users/zzc/Desktop/OOP\ homework/Finalproject/external/tinyxml2/xmltest.cpp
 external/tinyxml2/CMakeFiles/xmltest.dir/xmltest.cpp.o: external/tinyxml2/CMakeFiles/xmltest.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="/Users/zzc/Desktop/OOP homework/Finalproject/build/CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object external/tinyxml2/CMakeFiles/xmltest.dir/xmltest.cpp.o"
-	cd "/Users/zzc/Desktop/OOP homework/Finalproject/build/external/tinyxml2" && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT external/tinyxml2/CMakeFiles/xmltest.dir/xmltest.cpp.o -MF CMakeFiles/xmltest.dir/xmltest.cpp.o.d -o CMakeFiles/xmltest.dir/xmltest.cpp.o -c "/Users/zzc/Desktop/OOP homework/Finalproject/external/tinyxml2/xmltest.cpp"
+	cd "/Users/zzc/Desktop/OOP homework/Finalproject/build/external/tinyxml2" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT external/tinyxml2/CMakeFiles/xmltest.dir/xmltest.cpp.o -MF CMakeFiles/xmltest.dir/xmltest.cpp.o.d -o CMakeFiles/xmltest.dir/xmltest.cpp.o -c "/Users/zzc/Desktop/OOP homework/Finalproject/external/tinyxml2/xmltest.cpp"
 
 external/tinyxml2/CMakeFiles/xmltest.dir/xmltest.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/xmltest.dir/xmltest.cpp.i"
-	cd "/Users/zzc/Desktop/OOP homework/Finalproject/build/external/tinyxml2" && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/zzc/Desktop/OOP homework/Finalproject/external/tinyxml2/xmltest.cpp" > CMakeFiles/xmltest.dir/xmltest.cpp.i
+	cd "/Users/zzc/Desktop/OOP homework/Finalproject/build/external/tinyxml2" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E "/Users/zzc/Desktop/OOP homework/Finalproject/external/tinyxml2/xmltest.cpp" > CMakeFiles/xmltest.dir/xmltest.cpp.i
 
 external/tinyxml2/CMakeFiles/xmltest.dir/xmltest.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/xmltest.dir/xmltest.cpp.s"
-	cd "/Users/zzc/Desktop/OOP homework/Finalproject/build/external/tinyxml2" && /Library/Developer/CommandLineTools/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/zzc/Desktop/OOP homework/Finalproject/external/tinyxml2/xmltest.cpp" -o CMakeFiles/xmltest.dir/xmltest.cpp.s
+	cd "/Users/zzc/Desktop/OOP homework/Finalproject/build/external/tinyxml2" && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S "/Users/zzc/Desktop/OOP homework/Finalproject/external/tinyxml2/xmltest.cpp" -o CMakeFiles/xmltest.dir/xmltest.cpp.s
 
 # Object files for target xmltest
 xmltest_OBJECTS = \

@@ -63,7 +63,7 @@ UpdateOptions:
 UpdateType: git
 
 # Compiler info
-Compiler: /Library/Developer/CommandLineTools/usr/bin/c++
+Compiler: /usr/bin/c++
 CompilerVersion: 17.0.0.17000013
 
 # Dynamic analysis (MemCheck)

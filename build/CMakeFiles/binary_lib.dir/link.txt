@@ -1,2 +1,2 @@
-/Library/Developer/CommandLineTools/usr/bin/ar qc libbinary_lib.a CMakeFiles/binary_lib.dir/src/binary.cpp.o
-/Library/Developer/CommandLineTools/usr/bin/ranlib libbinary_lib.a
+/usr/bin/ar qc libbinary_lib.a CMakeFiles/binary_lib.dir/src/binary.cpp.o
+/usr/bin/ranlib libbinary_lib.a

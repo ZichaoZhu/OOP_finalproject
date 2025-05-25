@@ -1,0 +1,20 @@
+<serialization>
+    <std_map_bool>
+        <element>
+            <key>
+                <value val="false"/>
+            </key>
+            <value>
+                <value val="false"/>
+            </value>
+        </element>
+        <element>
+            <key>
+                <value val="true"/>
+            </key>
+            <value>
+                <value val="true"/>
+            </value>
+        </element>
+    </std_map_bool>
+</serialization>

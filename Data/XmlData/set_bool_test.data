@@ -1,0 +1,10 @@
+<serialization>
+    <std_set_bool>
+        <element>
+            <value val="false"/>
+        </element>
+        <element>
+            <value val="true"/>
+        </element>
+    </std_set_bool>
+</serialization>

@@ -190,6 +190,49 @@ namespace xml
     }
 
     /**
+     * @brief Write the std::vector<bool> type to XML.
+     * @tparam Write as this format: <element>
+     *                                  <value val = "...">
+     *                                </element>
+     *                                <element>
+     *                                  <value val = "...">
+     *                                </element>
+     *                                  ...
+     */
+    void writeintoXML(const std::vector<bool> &t, tinyxml2::XMLElement &Eletype)
+    {
+        for (size_t i = 0; i < t.size(); ++i)
+        {
+            tinyxml2::XMLElement *EleBool = Eletype.GetDocument()->NewElement("element");
+            EleBool->SetAttribute("val", t[i] ? "true" : "false");
+            Eletype.InsertEndChild(EleBool);
+        }
+    }
+    /**
+     * @brief Read the std::vector<bool> type from XML.
+     * @tparam Write as this format: <element>
+     *                                  <value val = "...">
+     *                                </element>
+     *                                <element>
+     *                                  <value val = "...">
+     *                                </element>
+     *                                  ...
+     */
+    void readfromXML(std::vector<bool> &t, tinyxml2::XMLElement &Eletype)
+    {
+        tinyxml2::XMLElement *EleBool = Eletype.FirstChildElement("element");
+        while (EleBool)
+        {
+            const char *val = EleBool->Attribute("val");
+            if (val)
+            {
+                t.push_back(strcmp(val, "true") == 0);
+            }
+            EleBool = EleBool->NextSiblingElement("element");
+        }
+    }
+
+    /**
      * @brief Write the std::list type to XML.
      * @tparam Write as this format: <element>
      *                                  <value val = "...">

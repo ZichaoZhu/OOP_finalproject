@@ -1,0 +1,28 @@
+<serialization>
+    <std_vector_pair>
+        <element>
+            <first>
+                <value val="1"/>
+            </first>
+            <second>
+                <value val="one"/>
+            </second>
+        </element>
+        <element>
+            <first>
+                <value val="2"/>
+            </first>
+            <second>
+                <value val="two"/>
+            </second>
+        </element>
+        <element>
+            <first>
+                <value val="3"/>
+            </first>
+            <second>
+                <value val="three"/>
+            </second>
+        </element>
+    </std_vector_pair>
+</serialization>

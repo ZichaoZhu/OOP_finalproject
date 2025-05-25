@@ -1,0 +1,10 @@
+<serialization>
+    <std_pair_bool>
+        <first>
+            <value val="true"/>
+        </first>
+        <second>
+            <value val="Hello, world."/>
+        </second>
+    </std_pair_bool>
+</serialization>
