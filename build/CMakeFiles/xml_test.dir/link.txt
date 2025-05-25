@@ -1,1 +1,1 @@
-/usr/bin/c++ -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.4.sdk -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/xml_test.dir/test/xml_test.cpp.o -o bin/xml_test  lib/libgtest.a lib/libgtest_main.a -lpthread external/tinyxml2/libtinyxml2.a lib/libgtest.a
+/usr/bin/c++  -arch arm64 -Wl,-search_paths_first -Wl,-headerpad_max_install_names CMakeFiles/xml_test.dir/test/xml_test.cpp.o -o bin/xml_test  lib/libgtest.a lib/libgtest_main.a -lpthread external/tinyxml2/libtinyxml2.a lib/libgtest.a

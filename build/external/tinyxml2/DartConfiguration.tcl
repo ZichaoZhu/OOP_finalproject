@@ -27,8 +27,8 @@ SubmitInactivityTimeout:
 NightlyStartTime: 00:00:00 EDT
 
 # Commands for the build/test/submit cycle
-ConfigureCommand: "/opt/homebrew/bin/cmake" "/Users/zzc/Desktop/OOP homework/Finalproject/external/tinyxml2"
-MakeCommand: /opt/homebrew/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}"
+ConfigureCommand: "/Applications/CMake.app/Contents/bin/cmake" "/Users/zzc/Desktop/OOP homework/Finalproject/external/tinyxml2"
+MakeCommand: /Applications/CMake.app/Contents/bin/cmake --build . --config "${CTEST_CONFIGURATION_TYPE}"
 DefaultCTestConfigurationType: Release
 
 # version control
